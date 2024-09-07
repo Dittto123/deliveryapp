@@ -1,0 +1,7 @@
+FROM golang:1.19-alpine
+WORKDIR /app
+COPY . .
+RUN go mod init notification-service
+RUN go get -d -v ./...
+RUN go build -o notification-service .
+CMD ["/app/notification-service"]

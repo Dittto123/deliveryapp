@@ -1,0 +1,7 @@
+FROM golang:1.19-alpine
+WORKDIR /app
+COPY . .
+RUN go mod init courier-service
+RUN go get -d -v ./...
+RUN go build -o courier-service .
+CMD ["/app/courier-service"]

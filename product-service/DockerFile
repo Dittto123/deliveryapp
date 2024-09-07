@@ -1,0 +1,7 @@
+FROM golang:1.19-alpine
+WORKDIR /udevsproject
+COPY . .
+RUN go mod init product-service
+RUN go get -d -v ./...
+RUN go build -o product-service .
+CMD ["/udevsproject/product-service"]
